@@ -50,6 +50,12 @@ app.get('/orderedDetails',async (req,res)=>{
     res.send(output);
 })
 
+app.get('/fullDetails',async (req,res)=>{
+    let query = {}
+    let collection = "fullDetails";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
 // postData
 app.post('/orderedDetails',async (req,res)=> {
     let data = req.body;
