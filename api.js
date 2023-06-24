@@ -22,7 +22,7 @@ app.get('/mainPage',async (req,res)=>{
     res.send(output);
 })
 
-app.get('/product/:Eveyday_Id',async (req,res)=>{
+app.get('/product',async (req,res)=>{
     let query = {};
     if(req.query.Everyday_Id){
         query={Everyday_Id: Number(req.Query.Everyday_Id)}
