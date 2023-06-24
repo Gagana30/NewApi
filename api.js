@@ -36,6 +36,21 @@ app.get('/ordering',async (req,res)=>{
     res.send(output);
 })
 
+app.get('/womenPage',async (req,res)=>{
+    let query = {};
+    let collection = "womenPage";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+
+app.get('/kidsPage',async (req,res)=>{
+    let query = {};
+    let collection = "kidsPage";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+
+
 app.get('/orderedDetails',async (req,res)=>{
     let query = {}
     if(req.query.Shoes_Id){
