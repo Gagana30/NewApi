@@ -22,8 +22,17 @@ app.get('/mainPage',async (req,res)=>{
     res.send(output);
 })
 
-app.get('/product',async (req,res)=>{
+app.get('/product/:Eveyday_Id',async (req,res)=>{
     let query = {};
+    if(req.query.Everyday_Id){
+        query={Everyday_Id: Number(req.Query.Everyday_Id)}
+    }else if(req.query.Active_Id){
+        query={Active_Id: Number(req.query.Active_Id)}
+    }else if(req.query.Tree_Id){
+        query={Tree_Id: Number(req.query.Tree_Id)}
+    }else if(req.query.Wool_Id){
+        query={Wool_Id: Number(req.query.Wool_Id)}
+    }
     let collection = "product";
     let output = await getdata(collection,query);
     res.send(output);
