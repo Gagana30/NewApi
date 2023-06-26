@@ -37,7 +37,16 @@ app.get('/product',async (req,res)=>{
     let output = await getdata(collection,query);
     res.send(output);
 })
-
+app.post(/'product', async(req,res) => {
+    if(Array.isArray(req.body.id)){
+      let query={Everyday_Id:{$in:req.body.id}};
+    let collection ='Everyday';
+    let output =await getData(collection,query);
+    res.send(output)
+    }else{
+    res.send('send data');
+    }
+})
 app.get('/ordering',async (req,res)=>{
     let query = {};
     let collection = "ordering";
