@@ -38,7 +38,7 @@ app.get('/product',async (req,res)=>{
     res.send(output);
 })
 
-app.get('/filetr/:Shoes_Id', async(req,res) => {
+app.get('/filetr/:ShoesId', async(req,res) => {
     let Everyday_Id= Number(req.params.Everyday_Id);
     let SEvery = Number(req.query.SEvery)
     let EEvery = Number(req.Query.EEvery)
