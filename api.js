@@ -37,6 +37,23 @@ app.get('/product',async (req,res)=>{
     let output = await getdata(collection,query);
     res.send(output);
 })
+
+app.get('/filetr/:Everyday_Id', async(req,res) => {
+    let Everyday_Id= Number(req.params.Everyday_Id);
+    let SEvery = Number(req.query.SEvery)
+    let EEvery = Number(req.Query.EEvery)
+    if(SEvery && EEvery){
+        query = {
+            "Everyday_Id":Everyday_Id,
+            $and:[{Everyday_Id:{$gt:SEvery,$lt:EEvery}}]
+        }
+    }else{
+        query ={}
+    }
+    let collection = "product";
+    let output = await getData(collection,query)
+    res.send(output);
+})
 app.post(/'product', async(req,res) => {
     if(Array.isArray(req.body.id)){
       let query={Everyday_Id:{$in:req.body.id}};
