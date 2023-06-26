@@ -24,10 +24,10 @@ app.get('/mainPage',async (req,res)=>{
 
 app.get('/product',async (req,res)=>{
     let query = {};
-    if(req.query.ShoesCategory){
-        query={ShoesCategory: string(req.query.ShoesCategory)}
-    }else if(req.query.BestSellers_Catagory){
-        query={BestSellers_Catagory: Number(req.query.BestSellers_Catagory)}
+    if(req.query.Everyday_Id){
+        query={Everyday_Id: Number(req.query.Everyday_Id)}
+    }else if(req.query.Active_Id){
+        query={Active_Id: Number(req.query.Active_Id)}
     }else if(req.query.Tree_Id){
         query={Tree_Id: Number(req.query.Tree_Id)}
     }else if(req.query.Wool_Id){
@@ -54,16 +54,20 @@ app.get('/filetr/:Shoes_Id', async(req,res) => {
     let output = await getData(collection,query)
     res.send(output);
 })
-app.post(/'product', async(req,res) => {
-    if(Array.isArray(req.body.id)){
-      let query={Everyday_Id:{$in:req.body.id}};
-    let collection ='Everyday';
-    let output =await getData(collection,query);
-    res.send(output)
-    }else{
-    res.send('send data');
-    }
-})
+
+
+// app.post(/'product', async(req,res) => {
+//     if(Array.isArray(req.body.id)){
+//       let query={Everyday_Id:{$in:req.body.id}};
+//     let collection ='Everyday';
+//     let output =await getData(collection,query);
+//     res.send(output)
+//     }else{
+//     res.send('send data');
+//     }
+// })
+
+
 app.get('/ordering',async (req,res)=>{
     let query = {};
     let collection = "ordering";
