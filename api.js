@@ -57,16 +57,16 @@ app.get('/filter/:ShoesId', async(req,res) => {
 })
 
 
-// app.post(/'product', async(req,res) => {
-//     if(Array.isArray(req.body.id)){
-//       let query={Everyday_Id:{$in:req.body.id}};
-//     let collection ='Everyday';
-//     let output =await getData(collection,query);
-//     res.send(output)
-//     }else{
-//     res.send('send data');
-//     }
-// })
+app.post('/product', async(req,res) => {
+if(Array.isArray(req.body.id)){
+   let query={Everyday_Id:{$in:req.body.id}};
+   let collection ='product';
+let output =await getData(collection,query);
+   res.send(output)
+}else{ 
+    res.send('send data');
+   }
+ })
 
 
 app.get('/ordering',async (req,res)=>{
