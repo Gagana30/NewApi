@@ -39,7 +39,76 @@ app.get('/product',async (req,res)=>{
 })
 
 app.get('/filter/:ShoesId', async(req,res) => {
-    let ShoesId= req.params.ShoesId;
+    let ShoesId= Number(req.params.ShoesId);
+    let SEvery = Number(req.query.SEvery)
+    let EEvery = Number(req.Query.EEvery)
+    if(SEvery && EEvery){
+        query = {
+            "Everyday_Id":ShoesId,
+            $and:[{Everyday_Id:{$gt:SEvery,$lt:EEvery}}]
+        }
+    }
+    else{
+        query = {}
+    }
+    let collection = "product";
+    let output = await getData(collection,query);
+    res.send(output)
+})
+
+
+// app.post(/'product', async(req,res) => {
+//     if(Array.isArray(req.body.id)){
+//       let query={Everyday_Id:{$in:req.body.id}};
+//     let collection ='Everyday';
+//     let output =await getData(collection,query);
+//     res.send(output)
+//     }else{
+//     res.send('send data');
+//     }
+// })
+
+
+app.get('/ordering',async (req,res)=>{
+    let query = {};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+
+app.get('/womenPage',async (req,res)=>{
+    let query = {};
+    let collection = "womenPage";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+
+app.get('/kidsPage',async (req,res)=>{
+    let query = {};
+    let collection = "kidsPage";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+
+
+app.get('/orderedDetails',async (req,res)=>{
+    let query = {}
+    if(req.query.Shoes_Id){
+        query={Shoes_Id: Number(req.query.Shoes_Id)}
+    }else if(req.query.BestSellers_Id){
+        query={BestSellers_Id: Number(req.query.BestSellers_Id)}
+    }else{
+        query = {}
+    }
+    let collection = "orderedDetails";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+
+app.get('/fullDetails',async (req,res)=>{
+    let query = {}
+    let collection = "fullDetails";
+    let output = await getdata(collection,query);
     res.send(ShoesId);
 })
 // postData
