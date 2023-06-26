@@ -39,8 +39,7 @@ app.get('/product',async (req,res)=>{
 })
 
 app.get('/filter/:ShoesId', async(req,res) => {
-    let ShoesId= Number(req.params.ShoesId);
-    
+    let ShoesId= req.params.ShoesId;
     res.send(ShoesId);
 })
 // postData
