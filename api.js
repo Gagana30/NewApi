@@ -25,7 +25,7 @@ app.get('/mainPage',async (req,res)=>{
 app.get('/product',async (req,res)=>{
     let query = {};
     if(req.query.ShoesCategory){
-        query={ShoesCategory: String(req.query.ShoesCategory)}
+        query={ShoesCategory: string(req.query.ShoesCategory)}
     }else if(req.query.BestSellers_Catagory){
         query={BestSellers_Catagory: Number(req.query.BestSellers_Catagory)}
     }else if(req.query.Tree_Id){
