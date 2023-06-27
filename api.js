@@ -25,7 +25,7 @@ app.get('/mainPage',async (req,res)=>{
 app.get('/product',async (req,res)=>{
     let query = {};
     if(req.query.Everyday){
-        query={Every: Number(req.query.Everyday_Id)}
+        query={Every: Number(req.query.Everyday)}
     }else if(req.query.Active){
         query={Active: Number(req.query.Active)}
     }else if(req.query.Tree_Id){
