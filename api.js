@@ -24,14 +24,32 @@ app.get('/mainPage',async (req,res)=>{
 
 app.get('/product',async (req,res)=>{
     let query = {};
-    if(req.query.Everyday_Id && req.query.ProductId && req.query.ShoesId && req.query.PrizeId){
-        query={Everyday_Id: Number(req.query.Everyday_Id),"Product_Id": Number(req.query.ProductId),"Shoes_Id": Number(req.query.ShoesId),"Prize_Id": Number(req.query.PrizeId)}
-    }else if(req.query.Active_Id){
-        query={Active_Id: Number(req.query.Active_Id)}
+    if(req.query.Everyday){
+        query={Every: Number(req.query.Everyday_Id)}
+    }else if(req.query.Active){
+        query={Active: Number(req.query.Active)}
     }else if(req.query.Tree_Id){
-        query={Tree_Id: Number(req.query.Tree_Id)}
-    }else if(req.query.Wool_Id){
-        query={Wool_Id: Number(req.query.Wool_Id)}
+        query={Tree: Number(req.query.Tree)}
+    }else if(req.query.Wool){
+        query={Wool: Number(req.query.Wool)}
+    }else if(req.query.WEveryday){
+        query={WEvery: Number(req.query.WEveryday)}
+    }else if(req.query.WActive){
+        query={WActive: Number(req.query.WActive)}
+    }else if(req.query.WTree){
+        query={WTree: Number(req.query.WTree)}
+    }else if(req.query.WWool){
+        query={WWool: Number(req.query.WWool)}
+    }else if(req.query.KEveryday){
+        query={KEvery: Number(req.query.KEveryday)}
+    }else if(req.query.KActive){
+        query={KActive: Number(req.query.KActive)}
+    }else if(req.query.KTree){
+        query={KTree: Number(req.query.KTree)}
+    }else if(req.query.KWool){
+        query={KWool: Number(req.query.KWool)}
+    }else{
+        query=[];
     }
     let collection = "product";
     let output = await getdata(collection,query);
