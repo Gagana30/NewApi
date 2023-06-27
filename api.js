@@ -44,7 +44,7 @@ app.get('/filter/:ShoesId', async(req,res) => {
     let EEvery = Number(req.Query.EEvery)
     if(SEvery && EEvery){
         query = {
-            "Shoes_Id":ShoesId,
+            "product":ShoesId,
             $and:[{Everyday_Id:{$gt:SEvery,$lt:EEvery}}]
         }
     }
