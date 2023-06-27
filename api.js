@@ -24,9 +24,8 @@ app.get('/mainPage',async (req,res)=>{
 
 app.get('/product',async (req,res)=>{
     let query = {};
-    if(req.query.Everyday_Id && req.query.Everyday){
-        // query={Everyday_Id: Number(req.query.Everyday_Id),Everyday_Id: Number(req.query.Everyday)}
-        query = {Everyday_Id:Number({$in:[1,2,3,4]})}
+    if(req.query.Everyday_Id && req.query.Product_Id && req.query.Shoes_Id && req.query.Prize_Id){
+        query={Everyday_Id: Number(req.query.Everyday_Id),Product_Id: Number(req.query.Product_Id),Shoes_Id: Number(req.query.Shoes_Id),Prize_Id: Number(req.query.Prize_Id)}
     }else if(req.query.Active_Id){
         query={Active_Id: Number(req.query.Active_Id)}
     }else if(req.query.Tree_Id){
