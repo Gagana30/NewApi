@@ -28,7 +28,7 @@ app.get('/product',async (req,res)=>{
         query={Every: Number(req.query.Everyday)}
     }else if(req.query.Active){
         query={Active: Number(req.query.Active)}
-    }else if(req.query.Tree_Id){
+    }else if(req.query.Tree){
         query={Tree: Number(req.query.Tree)}
     }else if(req.query.Wool){
         query={Wool: Number(req.query.Wool)}
