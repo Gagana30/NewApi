@@ -56,6 +56,40 @@ app.get('/product',async (req,res)=>{
     res.send(output);
 })
 
+app.get('/ordering',async (req,res)=>{
+    let query = {};
+    if(req.query.Everyday){
+        query={Every: Number(req.query.Everyday)}
+    }else if(req.query.Active){
+        query={Active: Number(req.query.Active)}
+    }else if(req.query.Tree){
+        query={Tree: Number(req.query.Tree)}
+    }else if(req.query.Wool){
+        query={Wool: Number(req.query.Wool)}
+    }else if(req.query.WEveryday){
+        query={WEvery: Number(req.query.WEveryday)}
+    }else if(req.query.WActive){
+        query={WActive: Number(req.query.WActive)}
+    }else if(req.query.WTree){
+        query={WTree: Number(req.query.WTree)}
+    }else if(req.query.WWool){
+        query={WWool: Number(req.query.WWool)}
+    }else if(req.query.KEveryday){
+        query={KEvery: Number(req.query.KEveryday)}
+    }else if(req.query.KActive){
+        query={KActive: Number(req.query.KActive)}
+    }else if(req.query.KTree){
+        query={KTree: Number(req.query.KTree)}
+    }else if(req.query.KWool){
+        query={KWool: Number(req.query.KWool)}
+    }else{
+        query=[];
+    }
+    let collection = "product";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+
 app.get('/filter/:ShoesId', async(req,res) => {
     let ShoesId= Number(req.params.ShoesId);
     let SEvery = Number(req.query.SEvery)
