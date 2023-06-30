@@ -71,24 +71,24 @@ let output =await getData(collection,query);
 
 app.get('/ordering',async (req,res)=>{
     let query = {};
-     if(req.query.Everyday){
-        query={Every: Number(req.query.Everyday)}
+     if(req.query.Every){
+        query={Every: Number(req.query.Every)}
     }else if(req.query.Active){
         query={Active: Number(req.query.Active)}
     }else if(req.query.Tree){
         query={Tree: Number(req.query.Tree)}
     }else if(req.query.Wool){
         query={Wool: Number(req.query.Wool)}
-    }else if(req.query.WEveryday){
-        query={WEvery: Number(req.query.WEveryday)}
+    }else if(req.query.WEvery){
+        query={WEvery: Number(req.query.WEvery)}
     }else if(req.query.WActive){
         query={WActive: Number(req.query.WActive)}
     }else if(req.query.WTree){
         query={WTree: Number(req.query.WTree)}
     }else if(req.query.WWool){
         query={WWool: Number(req.query.WWool)}
-    }else if(req.query.KEveryday){
-        query={KEvery: Number(req.query.KEveryday)}
+    }else if(req.query.KEvery){
+        query={KEvery: Number(req.query.KEvery)}
     }else if(req.query.KActive){
         query={KActive: Number(req.query.KActive)}
     }else if(req.query.KTree){
