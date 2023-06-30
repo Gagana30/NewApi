@@ -69,13 +69,13 @@ let output =await getData(collection,query);
    }
  })
 
-
 app.get('/ordering',async (req,res)=>{
     let query = {};
     let collection = "ordering";
     let output = await getdata(collection,query);
     res.send(output);
 })
+
 
 app.get('/womenPage',async (req,res)=>{
     let query = {};
