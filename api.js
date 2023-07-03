@@ -56,6 +56,13 @@ app.get('/product',async (req,res)=>{
     res.send(output);
 })
 
+app.get('/orderingDetails/:id', async(req,res) => {
+    let id = new Mongo.ObjectId(req.params.id)
+    let query = {Men_Id:id};
+    let collection = "ordering";
+    let output = await getData(collection,query);
+    res.send(output)
+})
 
 
 app.post('/product', async(req,res) => {
