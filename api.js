@@ -57,8 +57,7 @@ app.get('/product',async (req,res)=>{
 })
 
 app.get('/orderingDetails/:id', async(req,res) => {
-    let id = new Mongo.ObjectId(req.params.id)
-    let query = {Men_Id:id};
+    let query = {Everyday_Id:id};
     let collection = "ordering";
     let output = await getData(collection,query);
     res.send(output)
