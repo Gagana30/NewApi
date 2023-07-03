@@ -56,7 +56,7 @@ app.get('/product',async (req,res)=>{
     res.send(output);
 })
 
-app.get('/orderDetails/:id', async(req,res) => {
+app.get('/Details/:id', async(req,res) => {
     let id = Number(req.params.id);
     let query = {Everyday_Id:id};
     let collection = "ordering";
