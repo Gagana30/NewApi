@@ -56,13 +56,7 @@ app.get('/product',async (req,res)=>{
     res.send(output);
 })
 
-app.get('/ordering/:id', async(req,res) => {
-    let id = Number(req.params.id);
-    let query = {Everyday_Id:id};
-    let collection = "ordering";
-    let output = await getData(collection,query);
-    res.send(output)
-})
+
 
 
 app.post('/product', async(req,res) => {
