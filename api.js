@@ -35,7 +35,13 @@ app.get('/ordering',async (req,res)=>{
     let output = await getdata(collection,query);
     res.send(output);
 })
-
+app. get('/MEveryday/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {Everyday_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
 app.get('/product',async (req,res)=>{
     let query = {};
     if(req.query.Everyday){
