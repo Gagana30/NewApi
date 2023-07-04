@@ -37,10 +37,22 @@ async function postData(colname,data){
     return output;
 }
 
+// update
+async function updateSize(colName,condition,data){
+    let output;
+    try{
+        output = await db.collection(colName).updateOne(condition,data)
+    } catch(err){
+        output = {"response":"Error in update data"}
+    }
+    return output;
+}
+
 module.exports = {
     dbconnection,
     getdata,
-    postData
+    postData,
+    updateSize
 }
 
 
