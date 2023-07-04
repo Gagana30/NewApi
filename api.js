@@ -22,12 +22,7 @@ app.get('/mainPage',async (req,res)=>{
     res.send(output);
 })
 
-app.get('/product',async (req,res)=>{
-    let query = {}
-    let collection = "product";
-    let output = await getdata(collection,query);
-    res.send(output);
-})
+
 
 app.get('/ordering',async (req,res)=>{
     let query = {}
