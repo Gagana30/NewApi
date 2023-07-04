@@ -76,7 +76,7 @@ app.put('/updateSize',async(req,res) => {
     let condition = {"Everyday_Id":Number(req.body.Everyday_Id)};
     let data= {
         $set:{
-            "Size":req.body.Size
+            "NewSize":req.body.NewSize
         }
     }
     let response = await updateSize(collection,condition,data)
