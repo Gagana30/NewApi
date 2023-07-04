@@ -3,7 +3,7 @@ let app = express();
 let port = process.env.PORT||1995;
 const bodyParser = require('body-parser');
 const cors = require('cors');
-let {dbconnection,getdata,postData} = require('./controller/dbconnect');
+let {dbconnection,getdata,postData,updateSize} = require('./controller/dbconnect');
 
 
 // middlewear
@@ -71,7 +71,16 @@ app.get('/product',async (req,res)=>{
     res.send(output);
 })
 
-
+app.put('/updateSize',async(req,res) => {
+    let collection = 'Ordering';
+    let condition = {"Everyday_Id":Number(req.body.Everyday_Id)};
+    let data= {
+        $set:{
+            "Size":req.body.Size
+        }
+    }
+    let response = await updateSize(collection,condition,data)
+})
 
 
 app.post('/product', async(req,res) => {
