@@ -77,7 +77,7 @@ app.put('/updateSize',async(req,res) => {
     let condition = {"_id":new Mongo.ObjectId(req.body._id)};
     let data= {
         $set:{
-            "NewSize":req.body.NewSize
+            "sizeee":req.body.sizeee
         }
     }
     let response = await updateSize(collection,condition,data)
