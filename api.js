@@ -72,7 +72,7 @@ app.get('/product',async (req,res)=>{
 })
 
 app.put('/updateSize',async(req,res) => {
-    let collection = 'Ordering';
+    let collection = 'ordering';
     let condition = {"Everyday_Id":Number(req.body.Everyday_Id)};
     let data= {
         $set:{
