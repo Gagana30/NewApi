@@ -3,7 +3,6 @@ let app = express();
 let port = process.env.PORT||1995;
 const bodyParser = require('body-parser');
 const cors = require('cors');
-let Mongo = require('mongodb);
 let {dbconnection,getdata,postData,updateSize} = require('./controller/dbconnect');
 
 
