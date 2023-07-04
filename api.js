@@ -74,7 +74,7 @@ app.get('/product',async (req,res)=>{
 
 app.put('/updateSize',async(req,res) => {
     let collection = 'ordering';
-    let condition = {"_id":new Mongo.ObjectId(req.body._id)};
+    let condition = {"Everyday_Id":Number(req.body.Everyday_Id)};
     let data= {
         $set:{
             "sizeee":req.body.sizeee
