@@ -3,6 +3,7 @@ let app = express();
 let port = process.env.PORT||1995;
 const bodyParser = require('body-parser');
 const cors = require('cors');
+let Mongo = require('mongodb);
 let {dbconnection,getdata,postData,updateSize} = require('./controller/dbconnect');
 
 
@@ -73,7 +74,7 @@ app.get('/product',async (req,res)=>{
 
 app.put('/updateSize',async(req,res) => {
     let collection = 'ordering';
-    let condition = {"Everyday_Id":Number(req.body.Everyday_Id)};
+    let condition = {"_id":new Mongo.ObjectId(req.body._id)};
     let data= {
         $set:{
             "NewSize":req.body.NewSize
