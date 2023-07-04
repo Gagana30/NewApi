@@ -80,6 +80,7 @@ app.put('/updateSize',async(req,res) => {
         }
     }
     let response = await updateSize(collection,condition,data)
+    res.send(output);
 })
 
 
