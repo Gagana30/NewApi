@@ -23,6 +23,13 @@ app.get('/mainPage',async (req,res)=>{
 })
 
 app.get('/product',async (req,res)=>{
+    let query = {}
+    let collection = "product";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+
+app.get('/product',async (req,res)=>{
     let query = {};
     if(req.query.Everyday){
         query={Every: Number(req.query.Everyday)}
