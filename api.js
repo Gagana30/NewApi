@@ -3,7 +3,7 @@ let app = express();
 let port = process.env.PORT||1995;
 const bodyParser = require('body-parser');
 const cors = require('cors');
-let {dbconnection,getdata,postData,updateSize} = require('./controller/dbconnect');
+let {dbconnection,getdata,postData,updateOrder} = require('./controller/dbconnect');
 
 
 // middlewear
@@ -71,16 +71,16 @@ app.get('/product',async (req,res)=>{
     res.send(output);
 })
 
-app.put('/updateSize',async(req,res) => {
-    console.log(" updateing...");
+app.put('/updateOrder',async(req,res) => {
     let collection = 'ordering';
-    let condition = {Everyday_Id:Number(req.body.Everyday_Id)};
-    let data= {
-            "Size":req.body.Size
+    let condition = {"_id":new Mongo.ObjectId(req.body._id)}
+    let data = {
+        $set:{
+            "siz":req.body.siz
+        }
     }
-    let response = await updateSize(collection,condition,data)
-    res.send(output);
-    
+    let output = await updateOrder(collection,condition,data)
+    res.send(output)
 })
 
 
