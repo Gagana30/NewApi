@@ -72,15 +72,15 @@ app.get('/product',async (req,res)=>{
 })
 
 app.put('/updateSize',async(req,res) => {
+    console.log(" updateing...");
     let collection = 'ordering';
     let condition = {Everyday_Id:parseInt(req.body.Everyday_Id)};
     let data= {
-        $set:{
             "Size":req.body.Size
-        }
     }
     let response = await updateSize(collection,condition,data)
     res.send(output);
+    
 })
 
 
