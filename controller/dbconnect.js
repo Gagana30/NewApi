@@ -41,7 +41,7 @@ async function postData(colname,data){
 async function updateOrder(colName,condition,data){
     let output;
     try{
-        output = await db.collection(colName).update(condition,data)
+        output = await db.collection(colName).updateOne(condition,data)
     } catch(err){
         output = {"response":"Error in update data"}
     }
