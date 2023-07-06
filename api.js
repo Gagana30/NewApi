@@ -144,11 +144,12 @@ app.get('/kidsPage',async (req,res)=>{
     let output = await getdata(collection,query);
     res.send(output);
 })
-app.get('/orderView',async (req,res)=>{
-    let query = {}
+
+app.post('/orderView',async (req,res)=> {
+    let data = req.body;
     let collection = "orderView";
-    let output = await getdata(collection,query);
-    res.send(output);
+    let response = await postData(collection,data);
+    res.send(response);
 })
 
 app.get('/orderedDetails',async (req,res)=>{
