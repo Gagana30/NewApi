@@ -227,13 +227,13 @@ app.get('/kidsPage',async (req,res)=>{
     let output = await getdata(collection,query);
     res.send(output);
 })
-app.get('/view',async(req,res) => {
+app.get('/orderView',async(req,res) => {
     let query = {};
     let collection = "orderView";
     let output = await getdata(collection,query);
     res.send(output);
 })
-app.post('/orderView',async (req,res) => {
+app.post('/View',async (req,res) => {
     let data = req.body;
     let collection = "orderView";
     let response = await postData(collection,data);
