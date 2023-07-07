@@ -31,6 +31,7 @@ app.get('/ordering',async (req,res)=>{
     let output = await getdata(collection,query);
     res.send(output);
 })
+// ///////////////////////////////////////////////////////////////////////
 app. get('/MEveryday/:id',async (req, res) => {
     let id = Number(req.params.id);
     let query = {Everyday_Id:id};
@@ -38,6 +39,88 @@ app. get('/MEveryday/:id',async (req, res) => {
     let output = await getdata(collection,query);
     res.send(output);
 })
+app. get('/MActive/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {Active_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+app. get('/MTree/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {Tree_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+app. get('/MWool/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {Wool_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+
+// *************************************
+app. get('/WEveryday/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {WomenEveryday_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+app. get('/WActive/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {WomenActive_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+app. get('/WTree/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {WomenTree_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+app. get('/WWool/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {WomenWool_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+
+// **************************************
+app. get('/KEveryday/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {KidsEveryday_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+app. get('/KActive/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {kidsActive_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+app. get('/KTree/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {KidsTree_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+app. get('/KWool/:id',async (req, res) => {
+    let id = Number(req.params.id);
+    let query = {KidsWool_Id:id};
+    let collection = "ordering";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+// ///////////////////////////////////////////////////////////////////////
 app.get('/product',async (req,res)=>{
     let query = {};
     if(req.query.Everyday){
