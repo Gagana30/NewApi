@@ -62,7 +62,7 @@ app. get('/MWool/:id',async (req, res) => {
 })
 
 // *************************************
-app. get('/WEveryday/:id',async (req, res) => {
+app. get('/WEvery/:id',async (req, res) => {
     let id = Number(req.params.id);
     let query = {WomenEveryday_Id:id};
     let collection = "ordering";
@@ -92,7 +92,7 @@ app. get('/WWool/:id',async (req, res) => {
 })
 
 // **************************************
-app. get('/KEveryday/:id',async (req, res) => {
+app. get('/KEvery/:id',async (req, res) => {
     let id = Number(req.params.id);
     let query = {KidsEveryday_Id:id};
     let collection = "ordering";
