@@ -30,7 +30,7 @@ app.get('/userInfo',async (req,res)=>{
 })
 app.post('/login',async(req,res) => {
     let query = {};
-    if(req.query.password===password){
+    if(req.body.password===password){
         res.send("Successfully LogedIn")
     }else{
         res.send("Invalid Information")
