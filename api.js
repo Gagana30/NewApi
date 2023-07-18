@@ -28,7 +28,7 @@ app.get('/userInfo',async (req,res)=>{
     let output = await getdata(collection,query);
     res.send(output);
 })
-app.get('/login',async(req,res) => {
+app.post('/login',async(req,res) => {
     let query = {};
     if(req.query.password===password){
         res.send("Successfully LogedIn")
