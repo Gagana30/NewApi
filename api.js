@@ -23,7 +23,18 @@ app.get('/mainPage',async (req,res)=>{
     res.send(output);
 })
 
-
+app.get('/login',async(req,res) => {
+    let query = {};
+    let collection = "login";
+    let output = await getdata(collection,query);
+    res.send(output);
+})
+app.post('/register',async (req,res) => {
+    let data = req.body;
+    let collection = "login";
+    let response = await postData(collection,data);
+    res.send(response);
+})
 
 app.get('/ordering',async (req,res)=>{
     let query = {}
