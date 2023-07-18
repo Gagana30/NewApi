@@ -4,7 +4,7 @@ let port = process.env.PORT||1995;
 let Mongo = require('mongodb');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-let {dbconnection,getdata,postData,updateOrder} = require('./controller/dbconnect');
+let {dbconnection,getdata,postData,updateOrder,login} = require('./controller/dbconnect');
 
 
 // middlewear
@@ -22,11 +22,21 @@ app.get('/mainPage',async (req,res)=>{
     let output = await getdata(collection,query);
     res.send(output);
 })
-
-app.get('/login',async(req,res) => {
-    let query = {};
+app.get('/userInfo',async (req,res)=>{
+    let query = {}
     let collection = "login";
     let output = await getdata(collection,query);
+    res.send(output);
+})
+app.get('/login',async(req,res) => {
+    let query = {};
+    if(req.query.password===password){
+        res.send("Successfully LogedIn")
+    }else{
+        res.send("Invalid Information")
+    }
+    let collection = "login";
+    let output = await login(collection,query);
     res.send(output);
 })
 app.post('/register',async (req,res) => {
