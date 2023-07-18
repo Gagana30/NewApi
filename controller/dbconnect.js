@@ -48,11 +48,23 @@ async function updateOrder(colName,condition,data){
     return output
 }
 
+// login
+async function login(colName,data){
+    let check;
+    try{
+        check = await db.collection(colName).findOne({email:req.body.email})
+    }catch(err){
+        check = {"response":"Error in finding data"}
+    }
+    return check
+}
+
 module.exports = {
     dbconnection,
     getdata,
     postData,
-    updateOrder
+    updateOrder,
+    login
 }
 
 
