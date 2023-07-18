@@ -29,15 +29,16 @@ app.get('/userInfo',async (req,res)=>{
     res.send(output);
 })
 app.post('/login',async(req,res) => {
-    let query = {};
-    if(req.body.password===password){
+   try{
+       const check = await login.findOne({email: req.body.email})
+    if(check.password === req.body.password){
         res.send("Successfully LogedIn")
     }else{
-        res.send("Invalid Information")
+        res.send("Incorrect Password")
     }
-    let collection = "login";
-    let output = await login(collection,query);
-    res.send(output);
+}catch(e){
+       res.send("Invalid Details")
+}
 })
 app.post('/register',async (req,res) => {
     let data = req.body;
