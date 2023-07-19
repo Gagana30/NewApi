@@ -28,18 +28,26 @@ app.get('/userInfo',async (req,res)=>{
     let output = await getdata(collection,query);
     res.send(output);
 })
+
 app.post('/login',async(req,res) => {
-   try{
-       const check = await login.findOne({email: req.body.email})
-    if(check.password === req.body.password){
-        res.send("Successfully LogedIn")
+  const {email , password} = req.body;
+    let collection = "login";
+    collection.findOne({email: email})
+    .then(data => {
+        if(data){
+        if(data.password === password){
+            res.json("Success")
+        }else{
+            res.json("password is incorrect")
+        }
     }else{
-        res.send("Incorrect Password")
+        res.json("No record existed")
     }
-}catch(e){
-       res.send("Invalid Details")
-}
+    })
+    let output = await postData(collection,data);
+    res.send(output);
 })
+
 app.post('/register',async (req,res) => {
     let data = req.body;
     let collection = "login";
